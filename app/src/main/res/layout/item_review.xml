@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/reviewerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Hello World" />
+
+    <TextView
+        android:layout_marginTop="4dp"
+        android:id="@+id/reviewContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Lorem Ipsum dolor sit amet" />
+
+</LinearLayout>

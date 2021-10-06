@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.detail.DetailFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/restarurantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Judul Restaurant"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/posterImage"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/restarurantName"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/addressTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Address"
+            android:textStyle="bold"
+            tools:viewBindingIgnore="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posterImage" />
+
+        <TextView
+            android:id="@+id/cityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="City"
+            android:textStyle="bold"
+            tools:viewBindingIgnore="true"
+            app:layout_constraintStart_toStartOf="@+id/addressTitle"
+            app:layout_constraintTop_toBottomOf="@+id/addressValue" />
+
+        <TextView
+            android:id="@+id/categoriesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Categories"
+            android:textStyle="bold"
+            tools:viewBindingIgnore="true"
+            app:layout_constraintStart_toStartOf="@+id/cityTitle"
+            app:layout_constraintTop_toBottomOf="@+id/cityValue" />
+
+        <TextView
+            android:id="@+id/descriptionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Description"
+            android:textStyle="bold"
+            tools:viewBindingIgnore="true"
+            app:layout_constraintStart_toStartOf="@+id/categoriesTitle"
+            app:layout_constraintTop_toBottomOf="@+id/categoriesValue" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierStopConstraint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="categoriesTitle,addressTitle,descriptionTitle,cityTitle"
+            tools:layout_editor_absoluteX="411dp" />
+
+        <TextView
+            android:id="@+id/addressValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="8dp"
+            android:text="Jl. Hello world"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrierStopConstraint"
+            app:layout_constraintTop_toTopOf="@+id/addressTitle" />
+
+        <TextView
+            android:id="@+id/cityValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Medan"
+            app:layout_constraintEnd_toEndOf="@+id/addressValue"
+            app:layout_constraintStart_toEndOf="@id/barrierStopConstraint"
+            app:layout_constraintTop_toTopOf="@+id/cityTitle" />
+
+        <TextView
+            android:id="@+id/categoriesValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Italian, Honee"
+            app:layout_constraintEnd_toEndOf="@+id/cityValue"
+            app:layout_constraintStart_toEndOf="@id/barrierStopConstraint"
+            app:layout_constraintTop_toTopOf="@+id/categoriesTitle" />
+
+        <TextView
+            android:id="@+id/descriptionValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="Lorem Ipsum dolor"
+            app:layout_constraintEnd_toEndOf="@+id/categoriesValue"
+            app:layout_constraintStart_toEndOf="@id/barrierStopConstraint"
+            app:layout_constraintTop_toTopOf="@+id/descriptionTitle" />
+
+        <TextView
+            android:id="@+id/reviewContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Customer Review"
+            android:textStyle="bold"
+            tools:viewBindingIgnore="true"
+            app:layout_constraintStart_toStartOf="@+id/descriptionTitle"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionValue" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/customerRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/descriptionValue"
+            app:layout_constraintStart_toStartOf="@+id/reviewContent"
+            app:layout_constraintTop_toBottomOf="@+id/reviewContent" />
+
+        <TextView
+            android:id="@+id/addCustomerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Add Customer Review"
+            tools:viewBindingIgnore="true"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="@+id/customerRecycler"
+            app:layout_constraintTop_toBottomOf="@+id/customerRecycler" />
+
+        <EditText
+            android:id="@+id/customerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="@+id/customerRecycler"
+            app:layout_constraintStart_toStartOf="@+id/addCustomerTitle"
+            app:layout_constraintTop_toBottomOf="@+id/addCustomerTitle" />
+
+        <EditText
+            android:id="@+id/customerReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Description"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/customerName"
+            app:layout_constraintStart_toStartOf="@+id/customerName"
+            app:layout_constraintTop_toBottomOf="@+id/customerName" />
+
+        <Button
+            android:id="@+id/submitReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="@+id/customerReview"
+            app:layout_constraintStart_toStartOf="@+id/customerReview"
+            app:layout_constraintTop_toBottomOf="@+id/customerReview" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
